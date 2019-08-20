@@ -1,0 +1,20 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="text-center">
+        <h1>
+          Welcome to {{ title }}!
+        </h1>
+      </div>
+      <hr>
+      <form [formGroup]="myform" (ngSubmit)="onSubmit()">
+        <div class="form-group  col-sm-4">
+        <label class="label">Select a user</label>
+        <select formControlName="role" name="role" #role class="form-control">
+          <option value="">Select a User</option>
+          <option *ngFor="let user of users"  value="user.limit">{{user.name}}</option>
+        </select>
+       <br>
+        <div class="form-group">
+          <button class="btn btn-success" type="submit" [disabled]="role.value==''">Submit</button>
+        </div>
+      </div>
+      </form>
